@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./movie.css">
+</head>
+
+<header class="yy" style="padding-top: 10px;">NIJIN Movie World</header>
+
+<body style="background-color: white;">
+
+      
+      <form class="modal-content animate"method="post">
+        <div class="imgcontainer">
+            
+          <img src="./imgs/Mymy.jpg" alt="Avatar" class="avatar">
+        </div>
+    
+        <div class="container">
+         
+          <input type="text" id="movie" placeholder="Enter Movie Name" name="uname" required>
+    
+            
+          <button type="button" onclick="movieSearch()">Search</button>
+        
+        </div>
+    <!-- LOADER -->
+
+<div class="container">
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+</div>
+
+<!-- LOADER END -->
+        <div class="row container mm">
+       
+    <div id="movie1" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  </div>
+
+    <div id="movie2" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+    <div id="movie3" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+    <div id="movie4" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+</div>
+
+<div class="row container mm">
+
+    <div id="movie5" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  </div>
+
+    <div id="movie6" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+    <div id="movie7" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+    <div id="movie8" class="col-lg-3 col-md-4 col-sm-6 mb-4"> 
+    </div>
+
+</div>
+
+
+
+
+
+      </form>
+
+    </body>
+
+    <script>
+         function movieSearch() {
+        movieName = movie.value
+        fetch(`http://www.omdbapi.com/?s=${movieName}&apikey=78a3f936`).then(moviez=>moviez.json()).then(moviez=> displayMovie(moviez))
+    }
+
+
+    function displayMovie(movieData) {
+        
+        movieName1 = movieData.Search[0].Title
+        moviePoster1 = movieData.Search[0].Poster
+        movieYear1 = movieData.Search[0].Year
+        movieIMBD1 = movieData.Search[0].imdbID
+        movieType1 = movieData.Search[0].Type
+
+        movieName2 = movieData.Search[1].Title
+        moviePoster2 = movieData.Search[1].Poster
+        movieYear2 = movieData.Search[1].Year
+        movieIMBD2 = movieData.Search[1].imdbID
+        movieType2 = movieData.Search[1].Type
+
+        movieName3 = movieData.Search[2].Title
+        moviePoster3 = movieData.Search[2].Poster
+        movieYear3 = movieData.Search[2].Year
+        movieIMBD3 = movieData.Search[2].imdbID
+        movieType3 = movieData.Search[2].Type
+
+        movieName4 = movieData.Search[3].Title
+        moviePoster4 = movieData.Search[3].Poster
+        movieYear4 = movieData.Search[3].Year
+        movieIMBD4 = movieData.Search[3].imdbID
+        movieType4 = movieData.Search[3].Type
+
+        movieName5 = movieData.Search[4].Title
+        moviePoster5 = movieData.Search[4].Poster
+        movieYear5 = movieData.Search[4].Year
+        movieIMBD5 = movieData.Search[4].imdbID
+        movieType5 = movieData.Search[4].Type
+
+        movieName6 = movieData.Search[5].Title
+        moviePoster6 = movieData.Search[5].Poster
+        movieYear6 = movieData.Search[5].Year
+        movieIMBD6 = movieData.Search[5].imdbID
+        movieType6 = movieData.Search[5].Type
+
+        movieName7 = movieData.Search[6].Title
+        moviePoster7 = movieData.Search[6].Poster
+        movieYear7 = movieData.Search[6].Year
+        movieIMBD7 = movieData.Search[6].imdbID
+        movieType7 = movieData.Search[6].Type
+
+        movieName8 = movieData.Search[7].Title
+        moviePoster8 = movieData.Search[7].Poster
+        movieYear8 = movieData.Search[7].Year
+        movieIMBD8 = movieData.Search[7].imdbID
+        movieType8 = movieData.Search[7].Type
+
+        movie1.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster1}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName1}</p>
+            <p class="title1">${movieYear1}</p>
+            <p class="title1">IMBD:-${movieIMBD1}</p>
+            <p class="title1">${movieType1}</p>
+        </div>
+    </div>
+</div>`
+
+movie2.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster2}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName2}</p>
+            <p class="title1">${movieYear2}</p>
+            <p class="title1">IMBD:-${movieIMBD2}</p>
+            <p class="title1">${movieType2}</p>
+        </div>
+    </div>
+</div>`
+
+movie3.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster3}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName3}</p>
+            <p class="title1">${movieYear3}</p>
+            <p class="title1">IMBD:-${movieIMBD3}</p>
+            <p class="title1">${movieType3}</p>
+        </div>
+    </div>
+</div>`
+
+
+movie4.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster4}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName4}</p>
+            <p class="title1">${movieYear4}</p>
+            <p class="title1">IMBD:-${movieIMBD4}</p>
+            <p class="title1">${movieType4}</p>
+        </div>
+    </div>
+</div>`
+
+movie5.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster5}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName5}</p>
+            <p class="title1">${movieYear5}</p>
+            <p class="title1">IMBD:-${movieIMBD5}</p>
+            <p class="title1">${movieType5}</p>
+        </div>
+    </div>
+</div>`
+
+
+movie6.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster6}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName6}</p>
+            <p class="title1">${movieYear6}</p>
+            <p class="title1">IMBD:-${movieIMBD6}</p>
+            <p class="title1">${movieType6}</p>
+        </div>
+    </div>
+</div>`
+
+
+movie7.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster7}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName7}</p>
+            <p class="title1">${movieYear7}</p>
+            <p class="title1">IMBD:-${movieIMBD7}</p>
+            <p class="title1">${movieType7}</p>
+        </div>
+    </div>
+</div>`
+
+
+movie8.innerHTML =`<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img style="height: 100%;" src="${ moviePoster8}" alt="">
+           
+        </div>
+        <div class="flip-card-back">
+            <p class="title">${ movieName8}</p>
+            <p class="title1">${movieYear8}</p>
+            <p class="title1">IMBD:-${movieIMBD8}</p>
+            <p class="title1">${movieType8}</p>
+        </div>
+    </div>
+</div>`
+
+    }
+
+    </script>
+    </html>
+
